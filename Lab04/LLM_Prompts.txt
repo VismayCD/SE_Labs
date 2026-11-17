@@ -1,0 +1,7 @@
+This is a pygame Dino Run game for a lab. The high score never updates even when I beat my previous best. Find the bug in Game.update, explain why it happens, and give the minimal fix.
+
+Now implement dino_tint(on_ground) so the dino turns orange (255, 165, 0) while airborne and returns None on the ground. Show only the changed function.
+
+Now implement on_obstacle_passed as a combo counter of consecutive obstacles cleared. Reset it in Game.reset() and on collision, and display "Combo: N" next to the score in Game.draw. Show only the changed lines and where they go.
+
+Finally, implement max_jumps() for a double jump. Check that jump_count resets on landing, and tell me if anything else in Dino.jump or Dino.update needs to change.
