@@ -12,23 +12,17 @@ HIGH_SCORE_FILE = "dino_highscore.txt"
 
 def dino_tint(on_ground):
     """Return an (r, g, b) colour override for the dino based on whether it's on the ground, or None for the default green."""
-    if not on_ground:
-        return (255, 165, 0)
-    return None
+    pass
 
-combo = 0
+
 def on_obstacle_passed(obstacle, score):
     """Called once, the frame an obstacle finishes scrolling past the dino. Add a sound or a combo counter here."""
-    global combo
-    combo += 1
+    pass
 
-def reset_combo():
-    global combo
-    combo = 0
 
 def max_jumps():
     """Return how many jumps the dino gets before it must land again (2 for a double jump), or None for the default of 1."""
-    return 2
+    pass
 
 
 def load_high_score():
@@ -108,14 +102,13 @@ class Game:
         self.reset()
 
     def reset(self):
-        self.dino = Dino(80, GROUND_Y - 60)
+        self.dino = Dino(80, GROUND_Y)
         self.obstacles = []
         self.score = 0
         self.speed = 6
         self.spawn_timer = 0
         self.spawn_interval = 90
         self.state = "wait"
-        reset_combo()
 
     def start_or_jump(self):
         if self.state == "lose":
@@ -147,9 +140,8 @@ class Game:
 
         if hit:
             self.state = "lose"
-            reset_combo()
             current = self.score // 10
-            if self.high_score < current:
+            if self.high_score > current:
                 self.high_score = current
                 save_high_score(self.high_score)
             return
@@ -165,8 +157,8 @@ class Game:
         for obs in self.obstacles:
             obs.draw(screen)
 
-        score_surf = self.font.render(f"Score: {self.score // 10}   Best: {self.high_score}   Combo: {combo}", True, (50, 50, 50))
-        screen.blit(score_surf, (WIDTH - 360, 20))
+        score_surf = self.font.render(f"Score: {self.score // 10}   Best: {self.high_score}", True, (50, 50, 50))
+        screen.blit(score_surf, (WIDTH - 260, 20))
 
         if self.state == "wait":
             msg = self.big_font.render("Press SPACE to Start", True, (80, 80, 80))
