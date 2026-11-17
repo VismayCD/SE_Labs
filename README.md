@@ -26,10 +26,6 @@ This repository contains the submissions for all 7 Software Engineering labs.
 - [Lab 5 – Smart Home](https://github.com/VismayCD/L5_36_smart_home)
 - [Lab 6 & Lab 7 – Highway Toll](https://github.com/VismayCD/L6_L7_36_highway_toll)
 
-## Lab 4 – LLM Chat
-
-- [Claude chat history](https://claude.ai/chat/caf27463-4973-4871-a216-62b95f676758)
-
 ## Repository Structure
 
 Each lab has its own folder (`Lab01` to `Lab07`) containing the respective submission files.
